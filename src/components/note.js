@@ -1,22 +1,27 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 
 class Note extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      title: 'testing',
-      text: 'I is a note',
+      title: this.props.note.title,
+      text: this.props.note.text,
       // x: 400,
       // y: 12,
       // zIndex: 26,
     };
+
+    this.hi().bind(this);
+  }
+
+  hi() {
+    console.log(this.state.note.title);
   }
 
   render() {
     return (
-      <div>
+      <div className="note">
         <h1>{this.state.title}</h1>
         <p>{this.state.text}</p>
       </div>
@@ -24,4 +29,4 @@ class Note extends Component {
   }
 }
 
-ReactDOM.render(<Note />, document.getElementById('main'));
+export default Note;
