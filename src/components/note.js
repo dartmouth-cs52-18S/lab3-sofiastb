@@ -7,16 +7,10 @@ class Note extends Component {
     this.state = {
       title: this.props.note.title,
       text: this.props.note.text,
-      // x: 400,
-      // y: 12,
+      // x: this.props.note.x,
+      // y: this.props.note.y,
       // zIndex: 26,
     };
-
-    this.hi().bind(this);
-  }
-
-  hi() {
-    console.log(this.state.note.title);
   }
 
   render() {

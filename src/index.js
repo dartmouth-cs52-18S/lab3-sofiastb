@@ -13,23 +13,21 @@ class App extends Component {
         0: {
           title: 'hi',
           text: 'I is a note',
+          // x: 400,
+          // y: 12,
         },
       }),
     };
   }
 
-  renderNotes() {
-    this.state.notes.entrySeq().forEach(([id, note]) => {
-      return (
-        <Note id={id} note={note} />
-      );
-    });
-  }
-
   render() {
     return (
       <div id="notes">
-        {this.renderNotes()}
+        {this.state.notes.entrySeq().map(([id, note]) => {
+          return (
+            <Note id={id} note={note} />
+          );
+        })}
       </div>
     );
   }
