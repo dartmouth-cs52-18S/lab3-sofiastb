@@ -12,14 +12,31 @@ class App extends Component {
     this.state = {
       notes: Immutable.Map({ }),
       index: 0,
+      defaultX: 400,
+      defaultY: 125,
+      zIndex: 1,
     };
 
     this.updateNotes = this.updateNotes.bind(this);
   }
 
+  // set state for notes
   updateNotes(newTitle) {
-    this.setState({ notes: this.state.notes.set(this.state.index, { title: newTitle }) });
+    this.setState({
+      notes: this.state.notes.set(
+        this.state.index,
+        {
+          title: newTitle,
+          x: this.state.defaultX,
+          y: this.state.defaultY,
+          zIndex: this.state.zIndex,
+        },
+      ),
+    });
     this.setState({ index: this.state.index += 1 });
+    this.setState({ defaultX: this.state.defaultX += 30 });
+    this.setState({ defaultY: this.state.defaultY += 30 });
+    this.setState({ zIndex: this.state.zIndex += 1 });
   }
 
   render() {

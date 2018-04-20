@@ -1,4 +1,4 @@
-# Lab 3: React Notes 🚀
+# Lab 3: React Notes 📝
 ## Author 👩🏻‍💻
 Sofia Stanescu-Bellu
 
