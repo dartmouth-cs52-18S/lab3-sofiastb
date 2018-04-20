@@ -1,5 +1,26 @@
 body {
   background-color: grey;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  background: white;
+  display: flex;
+  height: 7vh;
+  justify-content: center;
+}
+
+#main {
+  height: 100vh;
+  margin-right: 0;
+  width: 100vw;
+}
+
+#input {
+  align-self: center;
+  margin-bottom: 0;
+  width: 70%;
 }
 
 .note {
