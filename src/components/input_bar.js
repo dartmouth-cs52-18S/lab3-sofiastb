@@ -30,11 +30,11 @@ class InputBar extends Component {
     return (
       // submitting for with React-Bootstrap was done with this StackOverflow post: https://stackoverflow.com/questions/37239799/can-not-submit-form-react-bootstrap
       <form onSubmit={this.createNewNote}>
-        <FormGroup id="input">
+        <FormGroup id="input" bsSize="large">
           <InputGroup>
             <FormControl type="text" placeholder="Type anything to make it a note!" onChange={this.onInputChange} value={this.state.text} />
             <InputGroup.Button>
-              <Button type="submit">New Note</Button>
+              <Button type="submit" bsSize="large">New Note</Button>
             </InputGroup.Button>
           </InputGroup>
         </FormGroup>

@@ -14,3 +14,4 @@ Sofia Stanescu-Bellu
 * [Stop form from refreshing page on submit](https://stackoverflow.com/questions/19454310/stop-form-refreshing-page-on-submitsubmitting)
 * [Cannot submit form React Bootstrap](https://stackoverflow.com/questions/37239799/can-not-submit-form-react-bootstrap)
 * [Generating Random Whole Numbers in JavaScript](https://www.freecodecamp.org/challenges/generate-random-whole-numbers-with-javascript)
+* [How to generate random pastel or brighter color in JavaScript](https://stackoverflow.com/questions/43193341/how-to-generate-random-pastel-or-brighter-color-in-javascript)

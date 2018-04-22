@@ -27,9 +27,9 @@ class Note extends Component {
         onDrag={this.moveNote}
         nStop={this.onStopDrag}
       >
-        <div className="note note-mover">
+        <div className="note note-mover" style={{ backgroundColor: this.props.note.backgroundColor }}>
           <div className="note-header">
-            <h1>{this.props.note.title}</h1>
+            <h2>{this.props.note.title}</h2>
             <div className="buttons">
               <span className="lnr lnr-pencil" />
               <span className="lnr lnr-cross" role="button" tabIndex={-1} onClick={this.delete} />

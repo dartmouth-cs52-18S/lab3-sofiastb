@@ -32,6 +32,8 @@ class App extends Component {
           x: Math.floor(Math.random() * 1400),
           y: Math.floor(Math.random() * 700),
           zIndex: 1 + (this.state.index * 1),
+          // generating random pastel colors was done with this StackOverflow post: https://stackoverflow.com/questions/43193341/how-to-generate-random-pastel-or-brighter-color-in-javascript
+          backgroundColor: `hsl(${360 * Math.random()},${25 + (70 * Math.random())}%,${85 + (10 * Math.random())}%)`,
         },
       ),
     });
@@ -55,13 +57,18 @@ class App extends Component {
     return (
       <div>
         <nav>
+          <h1>noted.</h1>
           <InputBar onNewNote={this.updateNotes} />
         </nav>
         <div id="notes">
           {/* Code taken from the lab description */}
           {this.state.notes.entrySeq().map(([id, note]) => {
             return (
-              <Note id={id} note={note} moveNote={this.dragNote} delete={this.deleteNote} />
+              <Note id={id}
+                note={note}
+                moveNote={this.dragNote}
+                delete={this.deleteNote}
+              />
             );
           })}
         </div>
