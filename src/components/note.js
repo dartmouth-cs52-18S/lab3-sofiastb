@@ -5,30 +5,30 @@ class Note extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      title: this.props.note.title,
-      text: this.props.note.text,
-      x: this.props.note.x,
-      y: this.props.note.y,
-      zIndex: this.props.note.zIndex,
-    };
+    this.moveNote = this.moveNote.bind(this);
+  }
+
+  moveNote(e, ui) {
+    this.props.moveNote(this.props.note.index, ui.x, ui.y);
   }
 
   render() {
     return (
       <Draggable
         handle=".note-mover"
-        // grid={[25, 25]}
-        defaultPosition={{ x: this.state.x, y: this.state.y }}
-        zIndex={this.state.zIndex}
-        // position={position} {/*looks like {x, y, width, height*/}
-        // onStart={this.onStartDrag}
-        // onDrag={this.onDrag}
-        // onStop={this.onStopDrag}
+        zIndex={this.props.zIndex}
+        position={{ x: this.props.note.x, y: this.props.note.y }}
+        onStart={this.onStartDrag}
+        onDrag={this.moveNote}
+        nStop={this.onStopDrag}
       >
-        <div className="note">
-          <h1>{this.state.title}</h1>
-          <p>{this.state.text}</p>
+        <div className="note note-mover">
+          <div className="note-title">
+            <h1>{this.props.note.title}</h1>
+          </div>
+          <div className="note-body">
+            <p>{this.props.note.text}</p>
+          </div>
         </div>
       </Draggable>
     );

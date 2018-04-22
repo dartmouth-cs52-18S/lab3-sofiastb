@@ -10,14 +10,12 @@ class App extends Component {
     super(props);
 
     this.state = {
-      notes: Immutable.Map({ }),
+      notes: Immutable.Map(),
       index: 0,
-      defaultX: 400,
-      defaultY: 125,
-      zIndex: 1,
     };
 
     this.updateNotes = this.updateNotes.bind(this);
+    this.dragNote = this.dragNote.bind(this);
   }
 
   // set state for notes
@@ -26,17 +24,22 @@ class App extends Component {
       notes: this.state.notes.set(
         this.state.index,
         {
+          index: this.state.index,
           title: newTitle,
-          x: this.state.defaultX,
-          y: this.state.defaultY,
-          zIndex: this.state.zIndex,
+          x: Math.floor(Math.random() * 1400), // used this resource to learn how to generate random numbers in JavaScript: https://www.freecodecamp.org/challenges/generate-random-whole-numbers-with-javascript
+          y: Math.floor(Math.random() * 700),
+          zIndex: 1 + (this.state.index * 1),
         },
       ),
     });
+
     this.setState({ index: this.state.index += 1 });
-    this.setState({ defaultX: this.state.defaultX += 30 });
-    this.setState({ defaultY: this.state.defaultY += 30 });
-    this.setState({ zIndex: this.state.zIndex += 1 });
+  }
+
+  dragNote(index, x, y) {
+    this.setState({
+      notes: this.state.notes.update(index, (n) => { return Object.assign({}, n, { x, y }); }),
+    });
   }
 
   render() {
@@ -49,7 +52,7 @@ class App extends Component {
           {/* Code taken from the lab description */}
           {this.state.notes.entrySeq().map(([id, note]) => {
             return (
-              <Note id={id} note={note} />
+              <Note id={id} note={note} moveNote={this.dragNote} />
             );
           })}
         </div>
