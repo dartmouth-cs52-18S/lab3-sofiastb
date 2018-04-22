@@ -16,6 +16,12 @@ form {
   justify-content: center;
 }
 
+h1 {
+  align-self: center;
+  margin: 0;
+  margin-left: 1rem;
+}
+
 #main {
   height: 100vh;
   margin-right: 0;
@@ -34,4 +40,30 @@ form {
   height: 350px;
   position: absolute;
   width: 300px;
+}
+
+.note-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+
+.buttons {
+  align-self: center;
+  display: flex;
+  justify-content: space-around;
+  margin-right: 1rem;
+}
+
+.lnr {
+  font-size: 20px;
+  padding: 0  0.5rem;
+}
+
+.lnr-cross {
+  font-size: 24px;
+}
+
+.lnr-cross:hover {
+  cursor: pointer;
 }

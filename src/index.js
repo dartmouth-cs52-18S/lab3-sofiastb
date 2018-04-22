@@ -16,9 +16,12 @@ class App extends Component {
 
     this.updateNotes = this.updateNotes.bind(this);
     this.dragNote = this.dragNote.bind(this);
+    this.deleteNote = this.deleteNote.bind(this);
   }
 
   // set state for notes
+  // used this resource to learn how to generate random numbers in JavaScript:
+  // https://www.freecodecamp.org/challenges/generate-random-whole-numbers-with-javascript
   updateNotes(newTitle) {
     this.setState({
       notes: this.state.notes.set(
@@ -26,7 +29,7 @@ class App extends Component {
         {
           index: this.state.index,
           title: newTitle,
-          x: Math.floor(Math.random() * 1400), // used this resource to learn how to generate random numbers in JavaScript: https://www.freecodecamp.org/challenges/generate-random-whole-numbers-with-javascript
+          x: Math.floor(Math.random() * 1400),
           y: Math.floor(Math.random() * 700),
           zIndex: 1 + (this.state.index * 1),
         },
@@ -42,6 +45,12 @@ class App extends Component {
     });
   }
 
+  deleteNote(index) {
+    this.setState({
+      notes: this.state.notes.delete(index),
+    });
+  }
+
   render() {
     return (
       <div>
@@ -52,7 +61,7 @@ class App extends Component {
           {/* Code taken from the lab description */}
           {this.state.notes.entrySeq().map(([id, note]) => {
             return (
-              <Note id={id} note={note} moveNote={this.dragNote} />
+              <Note id={id} note={note} moveNote={this.dragNote} delete={this.deleteNote} />
             );
           })}
         </div>
