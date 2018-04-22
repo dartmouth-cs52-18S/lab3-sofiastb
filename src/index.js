@@ -29,6 +29,7 @@ class App extends Component {
         {
           index: this.state.index,
           title: newTitle,
+          content: 'Now add some content!',
           x: Math.floor(Math.random() * 1400),
           y: Math.floor(Math.random() * 700),
           zIndex: 1 + (this.state.index * 1),
@@ -66,7 +67,7 @@ class App extends Component {
             return (
               <Note id={id}
                 note={note}
-                moveNote={this.dragNote}
+                move={this.dragNote}
                 delete={this.deleteNote}
               />
             );

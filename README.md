@@ -15,3 +15,5 @@ Sofia Stanescu-Bellu
 * [Cannot submit form React Bootstrap](https://stackoverflow.com/questions/37239799/can-not-submit-form-react-bootstrap)
 * [Generating Random Whole Numbers in JavaScript](https://www.freecodecamp.org/challenges/generate-random-whole-numbers-with-javascript)
 * [How to generate random pastel or brighter color in JavaScript](https://stackoverflow.com/questions/43193341/how-to-generate-random-pastel-or-brighter-color-in-javascript)
+* [What's the difference between textarea and input type text](https://stackoverflow.com/questions/21698065/whats-the-difference-between-textarea-and-input-type-text-in-angularjs)
+* [The `cancel` draggable prop](https://github.com/mzabriskie/react-draggable#draggable)
