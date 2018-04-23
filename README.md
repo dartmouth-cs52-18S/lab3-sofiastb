@@ -7,6 +7,7 @@ Sofia Stanescu-Bellu
 ## Sources
 * [React Bootstrap Library](https://react-bootstrap.github.io/)
 * [Linear Icons](https://linearicons.com/free#cdn)
+* [IBM Plex Font](https://fonts.google.com/featured/Plex)
 * [What is the difference between state and props in react](https://stackoverflow.com/questions/27991366/what-is-the-difference-between-state-and-props-in-react)
 * [How to loop through an immutable map of immutable maps](https://stackoverflow.com/questions/40475547/how-to-loop-through-an-immutable-map-of-immutable-maps)
 * [How to pass data from child component to its parent in React.js](https://stackoverflow.com/questions/38394015/how-to-pass-data-from-child-component-to-its-parent-in-reactjs)

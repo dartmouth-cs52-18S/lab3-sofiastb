@@ -1,5 +1,7 @@
 body {
   background-color: white;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 400;
   margin: 0;
   padding: 0;
 }
@@ -19,7 +21,8 @@ form {
 h1 {
   align-self: center;
   display: flex;
-  font-weight: 600;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 700;
   justify-content: center;
   margin: 0;
   width: 20%;
@@ -27,6 +30,8 @@ h1 {
 
 h2 {
   align-self: center;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 500;
   margin: 0;
   margin-left: 1rem;
   overflow-x: hidden;
