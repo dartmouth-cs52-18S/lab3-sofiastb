@@ -33,6 +33,7 @@ class Note extends Component {
     this.setState({ title: event.target.value });
   }
 
+  // sets editing status
   edit(event) {
     event.preventDefault();
     if (this.state.isEditing) {
@@ -72,6 +73,7 @@ class Note extends Component {
     }
   }
 
+  // update body
   renderBody() {
     if (this.state.isEditing) {
       return <Textarea className="content editing" onChange={this.onContentChange} value={this.state.content} />;
@@ -101,6 +103,7 @@ class Note extends Component {
             </div>
           </div>
           <div className="note-body">
+            <p className="author">By: {this.props.note.author}</p>
             {this.renderBody()}
           </div>
         </div>

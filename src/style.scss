@@ -37,43 +37,104 @@ h2 {
   overflow-x: hidden;
 }
 
+// login stuff
+#canvas {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
+
+  #login-box {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+    justify-content: center;
+    width: 50%;
+
+    #login-title {
+      align-self: center;
+      font-size: 100px;
+    }
+
+    h3 {
+      align-self: center;
+      color: grey;
+      font-family: 'IBM Plex Mono', monospace;
+      font-style: italic;
+    }
+
+    button {
+      align-self: center;
+      font-size: 24px;
+      height: 7vh;
+      margin-top: 5rem;
+      width: 50%;
+    }
+  }
+}
+
+// input bar
 #main {
   height: 100vh;
   margin-right: 0;
   width: 100vw;
+
+  #note-bar {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+
+    #input {
+      justify-content: flex-start;
+      margin-bottom: 0;
+      width: 100%;
+    }
+  }
 }
 
-#input {
-  justify-content: flex-start;
-  margin-bottom: 0;
-  width: 100%;
-}
-
-#note-bar {
-  display: flex;
-  justify-content: space-between;
-  width: 80%;
-}
-
+// note
 .note {
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
   min-height: 350px;
   position: absolute;
   min-width: 300px!important;
   max-width: 400px;
-}
 
-.note-header {
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem 0;
-}
+  .note-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
 
-.buttons {
-  align-self: center;
-  display: flex;
-  justify-content: space-around;
-  margin-right: 1rem;
+    .buttons {
+      align-self: center;
+      display: flex;
+      justify-content: space-around;
+      margin-right: 1rem;
+    }
+  }
+
+  .author {
+    margin-left: 1rem;
+  }
+
+  .note-body {
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+
+    .content {
+      background-color: transparent;
+      display: flex;
+      height: 100%;
+      margin: 1rem;
+    }
+
+    Textarea {
+      max-height: 100%;
+    }
+  }
 }
 
 .lnr {
@@ -86,24 +147,16 @@ h2 {
   font-size: 24px;
 }
 
-.lnr-trash {
+.lnr-trash, .lnr-exit {
   font-size: 32px;
   justify-content: flex-end;
   margin-right: 2rem;
   margin-top: 0.5rem;
 }
 
-.note-body {
-  display: flex;
-  height: 80%;
-}
 
-.content {
-  background-color: transparent;
-  display: flex;
-  height: 100%;
-  margin: 1rem;
-  width: 100%!important;
+.lnr-trash {
+  margin-right: 0!important;
 }
 
 .note-title-form {
@@ -119,10 +172,6 @@ h2 {
 
 .title-form  input {
   background-color: transparent;
-}
-
-Textarea {
-  max-height: 100%;
 }
 
 @media only screen and (max-width: 660px) {
