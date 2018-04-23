@@ -4,6 +4,7 @@ import Immutable from 'immutable';
 import './style.scss';
 import Note from './components/note';
 import InputBar from './components/input_bar';
+import * as db from './services/datastore';
 
 class App extends Component {
   constructor(props) {
@@ -11,47 +12,37 @@ class App extends Component {
 
     this.state = {
       notes: Immutable.Map(),
-      index: 0,
     };
-
-    this.updateNotes = this.updateNotes.bind(this);
-    this.dragNote = this.dragNote.bind(this);
-    this.deleteNote = this.deleteNote.bind(this);
   }
 
-  // set state for notes
-  // used this resource to learn how to generate random numbers in JavaScript:
-  // https://www.freecodecamp.org/challenges/generate-random-whole-numbers-with-javascript
-  updateNotes(newTitle) {
-    this.setState({
-      notes: this.state.notes.set(
-        this.state.index,
-        {
-          index: this.state.index,
-          title: newTitle,
-          content: 'Now add some content!',
-          x: Math.floor(Math.random() * 1400),
-          y: Math.floor(Math.random() * 700),
-          zIndex: 1 + (this.state.index * 1),
-          // generating random pastel colors was done with this StackOverflow post: https://stackoverflow.com/questions/43193341/how-to-generate-random-pastel-or-brighter-color-in-javascript
-          backgroundColor: `hsl(${360 * Math.random()},${25 + (70 * Math.random())}%,${85 + (10 * Math.random())}%)`,
-        },
-      ),
+  componentDidMount() {
+    db.fetchNotes((notes) => {
+      this.setState({ notes: Immutable.Map(notes) });
     });
+  }
 
-    this.setState({ index: this.state.index += 1 });
+  addNote(newTitle) {
+    db.newNote(newTitle);
   }
 
   dragNote(index, x, y) {
-    this.setState({
-      notes: this.state.notes.update(index, (n) => { return Object.assign({}, n, { x, y }); }),
-    });
+    db.updateXY(index, x, y);
   }
 
-  deleteNote(index) {
-    this.setState({
-      notes: this.state.notes.delete(index),
-    });
+  removeNote(index) {
+    db.deleteNote(index);
+  }
+
+  newTitle(index, title) {
+    db.updateTitle(index, title);
+  }
+
+  newContent(index, content) {
+    db.updateContent(index, content);
+  }
+
+  removeAll() {
+    db.deleteAll();
   }
 
   render() {
@@ -59,7 +50,10 @@ class App extends Component {
       <div>
         <nav>
           <h1>noted.</h1>
-          <InputBar onNewNote={this.updateNotes} />
+          <div id="note-bar">
+            <InputBar onNewNote={this.addNote} />
+            <span className="lnr lnr-trash" title="Delete all notes" role="button" tabIndex={-1} onClick={this.removeAll} />
+          </div>
         </nav>
         <div id="notes">
           {/* Code taken from the lab description */}
@@ -68,7 +62,9 @@ class App extends Component {
               <Note id={id}
                 note={note}
                 move={this.dragNote}
-                delete={this.deleteNote}
+                delete={this.removeNote}
+                updateTitle={this.newTitle}
+                updateContent={this.newContent}
               />
             );
           })}

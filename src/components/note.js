@@ -40,16 +40,15 @@ class Note extends Component {
     } else {
       this.setState({ isEditing: true });
     }
-    return false;
   }
 
   move(e, ui) {
-    this.props.move(this.props.note.index, ui.x, ui.y);
+    this.props.move(this.props.id, ui.x, ui.y);
   }
 
   delete(event) {
     event.preventDefault();
-    this.props.delete(this.props.note.index);
+    this.props.delete(this.props.id);
   }
 
   // chose to go with an input field for the title based off of this StackOverflow post:
@@ -68,6 +67,7 @@ class Note extends Component {
         </form>
       );
     } else {
+      this.props.updateTitle(this.props.id, this.state.title);
       return <h2>{this.state.title}</h2>;
     }
   }
@@ -76,6 +76,7 @@ class Note extends Component {
     if (this.state.isEditing) {
       return <Textarea className="content editing" onChange={this.onContentChange} value={this.state.content} />;
     } else {
+      this.props.updateContent(this.props.id, this.state.content);
       return <div className="content" dangerouslySetInnerHTML={{ __html: marked(this.state.content || '') }} />;
     }
   }

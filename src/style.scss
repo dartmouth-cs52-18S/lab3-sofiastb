@@ -41,14 +41,20 @@ h2 {
 #input {
   justify-content: flex-start;
   margin-bottom: 0;
-  width: 70%;
+  width: 100%;
+}
+
+#note-bar {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
 }
 
 .note {
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
   min-height: 350px;
   position: absolute;
-  max-width: 300px;
+  width: 300px;
 }
 
 .note-header {
@@ -72,6 +78,13 @@ h2 {
 
 .lnr-cross {
   font-size: 24px;
+}
+
+.lnr-trash {
+  font-size: 32px;
+  justify-content: flex-end;
+  margin-right: 2rem;
+  margin-top: 0.5rem;
 }
 
 .note-body {
@@ -105,16 +118,17 @@ Textarea {
   max-height: 100%;
 }
 
-@media only screen and (max-width: 600px) {
-  h2 {
-    width: 30%;
+@media only screen and (max-width: 660px) {
+  nav {
+    flex-direction: column;
   }
 
-  form {
-    width: 70%;
+  #note-bar {
+    margin-top: 2rem;
+    width: 100%;
   }
 
-  #input {
-    width: 90%;
+  .lnr-trash {
+    margin-right: 1rem;
   }
 }

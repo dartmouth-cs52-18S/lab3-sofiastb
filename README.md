@@ -17,3 +17,4 @@ Sofia Stanescu-Bellu
 * [How to generate random pastel or brighter color in JavaScript](https://stackoverflow.com/questions/43193341/how-to-generate-random-pastel-or-brighter-color-in-javascript)
 * [What's the difference between textarea and input type text](https://stackoverflow.com/questions/21698065/whats-the-difference-between-textarea-and-input-type-text-in-angularjs)
 * [The `cancel` draggable prop](https://github.com/mzabriskie/react-draggable#draggable)
+* [Callback functions in React](https://medium.com/@thejasonfile/callback-functions-in-react-e822ebede766)
