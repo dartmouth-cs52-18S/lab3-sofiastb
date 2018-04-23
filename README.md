@@ -19,3 +19,4 @@ Sofia Stanescu-Bellu
 * [What's the difference between textarea and input type text](https://stackoverflow.com/questions/21698065/whats-the-difference-between-textarea-and-input-type-text-in-angularjs)
 * [The `cancel` draggable prop](https://github.com/mzabriskie/react-draggable#draggable)
 * [Callback functions in React](https://medium.com/@thejasonfile/callback-functions-in-react-e822ebede766)
+* [Firebase React User Authentication](https://css-tricks.com/firebase-react-part-2-user-authentication/)

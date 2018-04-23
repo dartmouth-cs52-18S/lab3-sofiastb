@@ -25,10 +25,11 @@ function fetchNotes(callback) {
 // set state for notes
 // used this resource to learn how to generate random numbers in JavaScript:
 // https://www.freecodecamp.org/challenges/generate-random-whole-numbers-with-javascript
-function newNote(noteTitle) {
+function newNote(noteTitle, name) {
   database.ref('notes').push().set({
     title: noteTitle,
     content: '',
+    author: name,
     x: Math.floor(Math.random() * 1400),
     y: Math.floor(Math.random() * 700),
     zIndex: Math.floor(Math.random() * 100),
@@ -57,4 +58,6 @@ function deleteAll() {
   database.ref('notes').remove();
 }
 
+export const provider = new Firebase.auth.GoogleAuthProvider();
+export const auth = Firebase.auth();
 export { fetchNotes, newNote, deleteNote, updateTitle, updateContent, updateXY, deleteAll };

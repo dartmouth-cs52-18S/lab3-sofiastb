@@ -20,7 +20,6 @@ class InputBar extends Component {
   // passing the data to index.js was done with the help of this StackOverflow post: https://stackoverflow.com/questions/38394015/how-to-pass-data-from-child-component-to-its-parent-in-reactjs
   createNewNote(e) {
     e.preventDefault(); // stopping reload on submit was done with this StackOverflow post: https://stackoverflow.com/questions/19454310/stop-form-refreshing-page-on-submit
-    // pass title to parent
     this.props.onNewNote(this.state.text);
     // clear input field
     this.setState({ text: '' });
