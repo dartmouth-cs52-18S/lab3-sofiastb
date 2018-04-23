@@ -22,7 +22,7 @@ h1 {
   align-self: center;
   display: flex;
   font-family: 'IBM Plex Mono', monospace!important;
-  font-weight: 700;
+  font-weight: 700!important;
   justify-content: center;
   margin: 0!important;
   width: 20%;
@@ -181,10 +181,10 @@ h2 {
 
   #note-bar {
     margin-top: 2rem;
-    width: 100%;
+    width: 100%!important;
   }
 
-  .lnr-trash {
+  .lnr-trash, .lnr-exit {
     margin-right: 1rem;
   }
 }
