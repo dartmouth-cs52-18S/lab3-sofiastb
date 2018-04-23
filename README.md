@@ -3,6 +3,13 @@
 Sofia Stanescu-Bellu
 
 ## Description
+This is my take on React Notes! My web app is hosted at [noted.surge.sh](noted.surge.sh). 
+
+### What worked/what didn't work.
+At the beginning I struggled a bit with the transfer of data in React – my biggest issue was understanding `props` and `state` – but as I worked more and more, it became more intuitive and I now feel much more comfortable with it. I would say that getting edits to be reflected in the note was the hardest part. I ran into some weird errors that required some refactoring to fix. Firebase was also a struggle, but this was mostly due to my not reading the directions and trying to create my own note id instead of using the default Firebase generated one (lol 😅). 
+
+### Extra credit ✨
+I created a login in flow for the app using Firebase's Gmail authentication system. Now, anyone can access the app using their Gmail, and all of the notes posted in the board are linked to the user who posted them via their Gmail display name.
 
 ## Sources
 * [React Bootstrap Library](https://react-bootstrap.github.io/)
