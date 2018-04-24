@@ -9,8 +9,6 @@ class Note extends Component {
     super(props);
 
     this.state = {
-      title: this.props.note.title,
-      content: this.props.note.content,
       isEditing: false,
     };
 
@@ -25,12 +23,12 @@ class Note extends Component {
 
   onContentChange(event) {
     event.preventDefault();
-    this.setState({ content: event.target.value });
+    this.props.updateContent(this.props.id, event.target.value);
   }
 
   onTitleChange(event) {
     event.preventDefault();
-    this.setState({ title: event.target.value });
+    this.props.updateTitle(this.props.id, event.target.value);
   }
 
   // sets editing status
@@ -61,25 +59,23 @@ class Note extends Component {
           <FormGroup className="title-form">
             <FormControl
               type="text"
-              value={this.state.title}
+              value={this.props.note.title}
               onChange={this.onTitleChange}
             />
           </FormGroup>
         </form>
       );
     } else {
-      this.props.updateTitle(this.props.id, this.state.title);
-      return <h2>{this.state.title}</h2>;
+      return <h2>{this.props.note.title}</h2>;
     }
   }
 
   // update body
   renderBody() {
     if (this.state.isEditing) {
-      return <Textarea className="content editing" onChange={this.onContentChange} value={this.state.content} />;
+      return <Textarea className="content editing" onChange={this.onContentChange} value={this.props.note.content} />;
     } else {
-      this.props.updateContent(this.props.id, this.state.content);
-      return <div className="content" dangerouslySetInnerHTML={{ __html: marked(this.state.content || '') }} />;
+      return <div className="content" dangerouslySetInnerHTML={{ __html: marked(this.props.note.content || '') }} />;
     }
   }
 
